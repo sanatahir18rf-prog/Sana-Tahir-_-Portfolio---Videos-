@@ -204,6 +204,66 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
   font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(155,142,196,0.3); font-weight: 600;
 }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .slide {
+    padding: 44px 18px 60px;
+  }
+  .content-slide {
+    padding-top: 44px; padding-bottom: 64px;
+    align-items: center;
+  }
+  .slide-label {
+    font-size: 26px; text-align: center; width: 100%;
+  }
+
+  /* Cards become horizontally swipeable row */
+  .cards {
+    overflow-x: auto; overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px; gap: 12px;
+    width: 100%; flex-wrap: nowrap;
+  }
+  .cards::-webkit-scrollbar { display: none; }
+  .cards { scrollbar-width: none; }
+
+  .cards .card {
+    flex: 0 0 78vw;
+    scroll-snap-align: center;
+  }
+  .cards.solo { max-width: 100%; }
+  .cards.solo .card { flex: 0 0 88vw; }
+
+  .vc { max-height: 62vh; }
+
+  /* Hero */
+  .hero h1 { font-size: clamp(42px, 11vw, 68px); }
+  .hero-role { font-size: 15px; }
+  .bio { font-size: 13px; }
+  .links { flex-direction: column; align-items: center; gap: 10px; }
+
+  /* Section titles */
+  .sec-h { font-size: clamp(38px, 10vw, 60px); }
+  .sec-desc { font-size: 13px; }
+
+  /* Nav dots — move closer to edge */
+  .nav { right: 10px; gap: 6px; }
+  .dot { width: 5px; height: 5px; }
+
+  /* Arrows */
+  #prev { left: 16px; } #next { left: 60px; }
+
+  /* Swipe hint under multi-card slides */
+  .cards[data-hint]::after {
+    content: 'swipe →';
+    position: absolute; bottom: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px; letter-spacing: 2px; color: rgba(168,85,247,0.4);
+    text-transform: uppercase; white-space: nowrap;
+  }
+}
 </style>
 </head>
 <body>
@@ -289,7 +349,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
   <div class="cards">
     <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/ZVXgkr4zf3g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
     <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/QXDLR58D5WI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/b_hwoaVNHgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/D4kuEevmfoM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
   </div>
 </section>
 
@@ -304,10 +364,9 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 <!-- 8 · Human / UGC -->
 <section class="slide content-slide" data-s="organic">
   <p class="slide-label">UGC</p>
-  <div class="cards">
-    <div class="card"><div class="vc"><video src="ugc-1.mp4" controls playsinline></video></div></div>
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/4LPFKPEkV7Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/Ox8vuIcSheY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+  <div class="cards solo" style="max-width:60%;">
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/DmpOYBvekKo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/TeUYb0hePXA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
   </div>
 </section>
 
@@ -315,7 +374,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 <section class="slide content-slide" data-s="organic">
   <p class="slide-label">Talking Head</p>
   <div class="cards solo">
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/MWy_QZIvlog" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/2u4yzjSdPVc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
   </div>
 </section>
 
@@ -323,8 +382,8 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 <section class="slide content-slide" data-s="organic">
   <p class="slide-label">Promotional</p>
   <div class="cards">
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/JFwLO4I63kk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
-    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/1OtNe4prSXM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/34uuLr9M9Eg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
+    <div class="card"><div class="vc"><iframe src="https://www.youtube.com/embed/wAQYEJgbB6A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
   </div>
 </section>
 
